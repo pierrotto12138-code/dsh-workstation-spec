@@ -9,7 +9,7 @@
 | `workbench_spec` | 读规范：不带参数返回目录，带 `section` 返回对应章节 |
 | `workbench_starter` | 取起步模板中的单个文件：`manifest` / `station` / `css` / `background` |
 
-规范覆盖：三条铁律、形态选择、布局系统、Design tokens、组件规范、交互、可访问性、工程结构、站点适配流程、评审规则清单、验收清单。
+规范覆盖：三条铁律、形态选择、布局系统、Design tokens、组件规范、交互、可访问性、工程结构、站点适配流程、评审规则清单、验收清单，以及一章**默认风格**（同一作者复用到每个站点时的固定选择：白底单蓝、扁平侧栏、单一主视图、等宽控件、显式禁用态、按对象重置的进度条）。
 
 ## 安装
 
@@ -38,7 +38,7 @@ dsh plugin --profile <profile> add ./dsh-workstation-spec
 
 # 或者
 npm pack
-dsh plugin --profile <profile> add ./dsh-workstation-spec-0.1.0.tgz
+dsh plugin --profile <profile> add ./dsh-workstation-spec-0.2.0.tgz
 ```
 
 安装后重启 DSH（新增 bundle 只在启动时读取；启用 HMR 的 profile 会等待重组）。
@@ -81,6 +81,7 @@ workbench_spec(section="layout")
 | `adaptation` / `site` | 站点适配流程 |
 | `checklist` | 规则清单 |
 | `acceptance` | 验收清单 |
+| `style` / `defaults` / `preference` | 默认风格 |
 
 ### `workbench_starter`
 

@@ -9,6 +9,7 @@
   --border: #e6e9ef;
   --accent: #4d6bfe;
   --accent-soft: rgba(77, 107, 254, 0.09);
+  --danger: #d93a3f;
   position: fixed;
   inset: 0;
   z-index: 2147483000;
@@ -29,6 +30,7 @@
   --border: #272b35;
   --accent: #7c93ff;
   --accent-soft: rgba(124, 147, 255, 0.14);
+  --danger: #ff6b6b;
   color-scheme: dark;
 }
 
