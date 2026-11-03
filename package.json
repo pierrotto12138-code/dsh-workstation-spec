@@ -1,6 +1,6 @@
 {
   "name": "dsh-workstation-spec",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "把「Chrome 工作站 UI 规范」做成 DSH 工具：workbench_spec 读规范，workbench_starter 取起步模板。",
   "type": "module",
   "main": "lib/index.js",
@@ -29,14 +29,6 @@
   "engines": {
     "node": ">=20",
     "dsh": ">=0.2.1-rc.5 <0.3.0"
-  },
-  "peerDependencies": {
-    "@deepseek-ai/dsh-tools": "*"
-  },
-  "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-tools": {
-      "optional": true
-    }
   },
   "dsh": {
     "bundle": {

@@ -107,6 +107,12 @@ function walk(dir) {
     }
     const r = rel(full)
     if (CREDENTIAL.test(r)) fail(`possible credential file: ${r}`)
+    if (r.startsWith('lib/') && /\.[cm]?js$/.test(entry.name)) {
+      const source = fs.readFileSync(full, 'utf8')
+      for (const match of source.matchAll(/(?:from\s*|import\s*\(\s*)['"](@deepseek-ai\/[^'"]+)['"]/g)) {
+        fail(`${r} imports host package ${match[1]}; installed plugins cannot resolve @deepseek-ai/*`)
+      }
+    }
     const size = fs.statSync(full).size
     if (size > MAX_BYTES) warn(`large file (${(size / 1024 / 1024).toFixed(1)} MiB): ${r}`)
   }

@@ -116,7 +116,7 @@ dsh plugin --profile <profile> remove dsh-workstation-spec
 | --- | --- |
 | DSH | `>=0.2.1-rc.5 <0.3.0`（实测 `0.2.1-rc.5`） |
 | Node.js | `>= 20` |
-| 运行时依赖 | 无；仅声明 `@deepseek-ai/dsh-tools` 为可选 peer，由宿主提供 |
+| 运行时依赖 | 无；不 import 任何 `@deepseek-ai/*` 包 |
 | 构建步骤 | 无 |
 
 ## 仓库结构
@@ -129,6 +129,7 @@ dsh plugin --profile <profile> remove dsh-workstation-spec
 ├── assets/
 │   ├── spec.md            # 完整规范
 │   └── starter/           # 起步模板（manifest / station.js / station.css / background.js）
+├── CHANGELOG.md           # 版本变更
 ├── tools/preflight.mjs    # 发布前自检（零依赖）
 └── .github/workflows/     # CI：语法、清单、打包自检
 ```
@@ -143,7 +144,9 @@ node tools/preflight.mjs
 npm pack --dry-run
 ```
 
-`preflight.mjs` 检查：包名与 semver、`dsh.bundle.patch` 存在、patch 中的 id/name 与包名一致、入口与资源存在、`keywords` 含 `dsh-plugin`、README/LICENSE 存在、无凭据类文件。
+`preflight.mjs` 检查：包名与 semver、`dsh.bundle.patch` 存在、patch 中的 id/name 与包名一致、入口与资源存在、`keywords` 含 `dsh-plugin`、README/LICENSE 存在、无凭据类文件，并拒绝 `lib/` 里对 `@deepseek-ai/*` 的 import。
+
+> 插件安装进 profile 后，`@deepseek-ai/*` 不在它的模块解析路径上，import 会直接让插件加载失败（表现为「启用失败」）。所以工具定义使用原始 JSON Schema，通过 `ctx.tools.register` 注册，宿主服务只从 `ctx` 取。
 
 ## 相关
 
