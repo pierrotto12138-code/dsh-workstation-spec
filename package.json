@@ -1,0 +1,46 @@
+{
+  "name": "dsh-workstation-spec",
+  "version": "0.1.0",
+  "description": "把「Chrome 工作站 UI 规范」做成 DSH 工具：workbench_spec 读规范，workbench_starter 取起步模板。",
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "chrome-extension",
+    "design-spec",
+    "workstation"
+  ],
+  "license": "MIT",
+  "author": "Pierrot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierrotto12138-code/dsh-workstation-spec.git"
+  },
+  "homepage": "https://github.com/pierrotto12138-code/dsh-workstation-spec#readme",
+  "bugs": {
+    "url": "https://github.com/pierrotto12138-code/dsh-workstation-spec/issues"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.5 <0.3.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

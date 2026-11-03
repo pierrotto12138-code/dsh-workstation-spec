@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "示例站点工作站",
+  "version": "0.1.0",
+  "description": "把 example.com 变成操作台：左侧栏 + 可切换主视图。",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "开合工作站（Alt+B）"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://example.com/*", "https://www.example.com/*"],
+      "js": ["station.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["station.css"],
+      "matches": ["https://example.com/*", "https://www.example.com/*"]
+    }
+  ]
+}
