@@ -156,4 +156,6 @@ npm pack --dry-run
 
 ## 许可
 
-MIT © 2026 Pierrot
+[0BSD](https://opensource.org/license/0bsd)（BSD Zero Clause）© 2026 Pierrot
+
+零条件：随便用、改、闭源、再发布，**不用署名**。唯一保留的是免责声明。

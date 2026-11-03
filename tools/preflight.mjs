@@ -77,7 +77,7 @@ if (!Array.isArray(pkg.keywords) || !pkg.keywords.includes('dsh-plugin')) {
 }
 if (!exists('README.md')) fail('README.md is required (what/install/uninstall/example)')
 if (!exists('LICENSE')) fail('LICENSE file is missing')
-if (pkg.license !== 'MIT' && !pkg.license) fail('license field is missing')
+if (!pkg.license) fail('license field is missing')
 
 const repo = pkg.repository?.url ?? pkg.repository
 if (typeof repo !== 'string' || !/github\.com[:/]/.test(repo)) {
